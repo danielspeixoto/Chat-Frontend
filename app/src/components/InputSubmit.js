@@ -1,33 +1,35 @@
 import React from 'react'
 import { LoadingButton } from './LoadingButton';
+import { FormControl } from 'react-bootstrap';
 
 const InputSubmit = (props) => {
 
 	const containerStyle = {
-		width: "auto",
 		display: "flex",
+		backgroundColor: "#5553",
 		...props.style
 	}
 
 	const inputStyle = {
-		width: "100%",
-		marginRight: "1vh"
+		marginRight: "1vh",
+		width: "100%"
 	}
 
-	const buttonStyle = {
-		float: "right"
+	const onChange = (event) => {
+		props.onChange(event.target.value)
 	}
 
 	return (
 		<div style={containerStyle}>
-			<input 
+			<FormControl 
+				value={props.value}
+				onChange={onChange}
 				style={inputStyle}
-				placeholder="Start a conversation"
-				>
-				</input>
-			<LoadingButton 
-				style={buttonStyle}
-				>Send
+				placeholder={props.placeholder}/>
+			<LoadingButton
+				isLoading={props.isLoading}
+				onClick={props.onSubmit}
+				>{props.isLoading? "Loading..." : "Send"}
 			</LoadingButton>
 		</div>
 	)

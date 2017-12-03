@@ -4,11 +4,16 @@ import {
 } from 'react-bootstrap'
 
 const NavBar = (props) => {
+
+	const style = {
+		marginBottom: "0px"
+	}
+
 	return (
-		<Navbar>
+		<Navbar style={style}>
 			<Navbar.Header>
 				<NavbarBrand>
-					<a href="#">Welcome to my Chat App</a> 
+					Welcome to my Chat App
 				</NavbarBrand>
 			</Navbar.Header>
 		</Navbar>

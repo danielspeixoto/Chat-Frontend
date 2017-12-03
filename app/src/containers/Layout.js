@@ -3,7 +3,9 @@ import NavBar from '../components/NavBar'
 
 const Layout = (props) => {
 	const style = {
-		paddingBottom: "16px"
+		height: "100vh",
+		display: "flex",
+		flexFlow: "column"
 	}	
 	return (
 		<div style={style}>
