@@ -1,19 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
 
+import React from "react";
+import ReactDOM from "react-dom";
 import {
-   Navbar,
-   Jumbotron, 
-   Button
-} from 'react-bootstrap';
+  BrowserRouter,
+  Route
+} from 'react-router-dom'
+
+import Chat from "./components/Chat";
+import Layout from "./containers/Layout";
+
+const root = document.getElementById('root');
 
 ReactDOM.render(
-    <div>
-      <Navbar/>
-      <Jumbotron>
-        <Button bsStyle="primary">Send</Button>
-      </Jumbotron>
-    </div>,
-    document.getElementById('root')
-  )
-  
+  <BrowserRouter>  
+    <Layout>
+      <Route exact path="/" component={ Chat }/>
+    </Layout>
+  </BrowserRouter>
+  , root);
