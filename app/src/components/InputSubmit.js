@@ -21,7 +21,7 @@ const InputSubmit = (props) => {
 
 	return (
 		<div style={containerStyle}>
-			<FormControl 
+			<FormControl
 				value={props.value}
 				onChange={onChange}
 				style={inputStyle}

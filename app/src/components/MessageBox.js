@@ -3,6 +3,12 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const MessageBox = (props) => {
 
+	const messages = props.messages.map(msg => {
+		return (
+			<ListGroupItem>{msg}</ListGroupItem>
+		)
+	})
+
 	const style = {
 		height: "0", //TODO Find better way
 		flexGrow: "1",
@@ -17,29 +23,7 @@ const MessageBox = (props) => {
 
 	return(
 		<ListGroup style = {style}>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			<ListGroupItem>1: Falou oi</ListGroupItem>
-			
+			{messages}
 		</ListGroup>
 	)
 }

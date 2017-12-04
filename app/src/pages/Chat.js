@@ -5,13 +5,16 @@ import { connect } from 'react-redux'
 import { 
 	startLoading,
 	stopLoading,
-	setMessage
+	setMessage,
+	onMessageReceived
 } from '../actions/messageActions'
 import { sendMessage } from '../api/message'
 
 const Chat = (props) => {
 
-	console.log("Layout being inflated")
+	props.message.socket.onmessage = function(event) {
+		props.onMessageReceived(event.data)
+	}
 
 	const style = {
 		width: "100%",
@@ -27,20 +30,22 @@ const Chat = (props) => {
 
 	return (
 		<div style={style}>
-			<MessageBox/>
+			<MessageBox
+				messages={props.message.messages}/>
 			<InputSubmit 
+				value={props.message.message}
 				onChange={props.setMessage}
 				onSubmit={sendMessage(props)}
-				isLoading={props.messageStatus.isLoading}
+				isLoading={props.message.isLoading}
 				placeholder="Join this conversation"
-				style={inputStyle} />
+				style={inputStyle}/>
 		</div>
 	)
 }
 
 export default connect(
 	state => ({
-		messageStatus: state.message
+		message: state.message
 	}),
-	{ startLoading, stopLoading, setMessage }
+	{ startLoading, stopLoading, setMessage, onMessageReceived }
 ) (Chat)
